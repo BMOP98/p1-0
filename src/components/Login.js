@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const url = "http://3.138.245.31/verify";
+    const url = "http://3.138.245.31:8080/verify";
     try {
         const response = await fetch(url+"/"+email+"/"+password);
         const message = await response.json();
