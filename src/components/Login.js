@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const url = "https://clientp.azurewebsites.net/verify";
+    const url = "https://problem1-1.azurewebsites.net/verify";
     try {
         const response = await fetch(url+"/"+email+"/"+password);
         const message = await response.json();

@@ -10,14 +10,14 @@ const Reservation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:4004/register";
+      const url = "https://problem1-1.azurewebsites.net/register";
       const verify = await fetch(url+"/"+item_valueid);
       const mess = await verify.json();
       if(!verify.ok){
         toast.error(mess.message || "Error al verificar");
       } else {
         const idcard = mess;
-        const url = "http://localhost:4005/apireservation";
+        const url = "https://problem1-3.azurewebsites.net/apireservation";
         const response = await fetch(url, {
           method: 'POST',
           headers: {
@@ -29,7 +29,7 @@ const Reservation = () => {
         if (!response.ok) {
           throw new Error("Response Status: " + response.status);
         } else {
-          const Sendmail = await fetch("http://localhost:4006/apinotification/" + item_valueid, {
+          const Sendmail = await fetch("https://problem1-2.azurewebsites.net/apinotification/" + item_valueid, {
             method: 'POST',
             headers:{
               'Content-Type': 'application/json',

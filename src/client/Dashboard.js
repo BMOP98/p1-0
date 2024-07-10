@@ -9,11 +9,11 @@ const Dashboard = () => {
     const fetchReservations = async () => {
       try {
         var item_valueid = sessionStorage.getItem("item_key");
-        const url = "https://clientp.azurewebsites.net/register";
+        const url = "https://problem1-1.azurewebsites.net/register";
         const verify = await fetch(url + "/" + item_valueid);
         const mess = await verify.json();
         const idcard = mess;
-        const response = await fetch('http://localhost:4005/apireservation/' + idcard);
+        const response = await fetch('https://problem1-3.azurewebsites.net/apireservation/' + idcard);
         if (response.ok) {
           const data = await response.json();
           setReservations(data);
@@ -33,7 +33,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4005/apireservation/${id}`, {
+      const response = await fetch(`https://problem1-3.azurewebsites.net/apireservation/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {

@@ -14,13 +14,13 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://3.138.245.31:8080/verify";
+      const url = "https://problem1-1.azurewebsites.net/verify";
       const verify = await fetch(url+"/"+email);
       const mess = await verify.json();
       if(!verify.ok){
         toast.error(mess);
       } else {
-        const url = "http://3.138.245.31:8080/register";
+        const url = "https://problem1-1.azurewebsites.net/register";
         const response = await fetch(url, {
           method: 'POST',
           headers: {
