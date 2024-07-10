@@ -9,7 +9,7 @@ const Dashboard = () => {
     const fetchReservations = async () => {
       try {
         var item_valueid = sessionStorage.getItem("item_key");
-        const url = "http://3.138.245.31:8080/register";
+        const url = "https://clientp.azurewebsites.net/register";
         const verify = await fetch(url + "/" + item_valueid);
         const mess = await verify.json();
         const idcard = mess;
